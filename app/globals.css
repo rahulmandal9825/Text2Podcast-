@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #101114;
+}
+
+  @layer utilities {
+
+    .Left_sidebar{
+      @apply sticky left-0 top-0 flex w-fit flex-col  border-none  bg-black-1 pt-8 text-white-1 max-md:hidden lg:w-[270px] lg:pl-8;
+    }
+    .podcast_grid{
+      @apply grid grid-cols-1 lg:grid-cols-4 2xl:grid-cols-4 gap-5 sm:grid-cols-2
+    }
+    .right_sidebar{
+      @apply sticky right-0 top-0 flex w-fit flex-col  justify-between  border-none  bg-black-1 pt-8 text-white-1 max-md:hidden lg:w-[270px] lg:pl-8;
+    }
+    .input-class{
+      @apply  bg-black-1 rounded-lg  placeholder:text-gray-1 border-none outline-none text-white-1
+    } 
+    .image_div {
+      @apply  flex mt-5 h-[150px] w-full cursor-pointer flex-col  gap-3 rounded-xl border-2 border-dashed  transition-all duration-150 border-black-6 bg-black-1;
+    }
+
+
+  }
+
+
+
+  .glassmorphism {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+  .glassmorphism-auth {
+    background: rgba(6, 3, 3, 0.711);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+  .glassmorphism-black {
+    background: rgba(18, 18, 18, 0.64);
+    backdrop-filter: blur(37px);
+    -webkit-backdrop-filter: blur(37px);
+  }
