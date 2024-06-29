@@ -5,6 +5,7 @@
 import { createUserParams, UpdateUserparams } from "@/types";
 import { connectTodb } from "../database/mongoose";
 import User from "../models/user.model";
+import { revalidatePath } from "next/cache";
 
 
 
