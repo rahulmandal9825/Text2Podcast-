@@ -1,4 +1,4 @@
-
+import { Dispatch, SetStateAction } from "react";
 
 export interface Podcast {
     key: number;
@@ -46,4 +46,16 @@ export interface Podcast {
     voicePrompt: string;
     views: number;
     audioDuration: number;
+  }
+
+  export interface PodcastDetailPlayerProps{
+    audioUrl: string;
+    podcastTitle: string;
+    author: string;
+    imageUrl: string;
+    isOwner: boolean;
+    authorimg: string;
+    podcastId: string;
+    authorId: string;
+
   }

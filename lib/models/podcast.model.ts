@@ -2,10 +2,7 @@ import { model, models, Schema } from "mongoose";
 
 
 const podcastSchema = new Schema({
-    user: {
-        type: Schema.Types.ObjectId,
-        ref: "User",
-      },
+
     podcastTitle: {
         type: String,
         required: true,
@@ -16,22 +13,22 @@ const podcastSchema = new Schema({
     },
     audioUrl: {
         type: String,
-
+        required: true,
     },
     imageUrl: {
         type: String,
+        required: true,
     },
     author: {
         type: String,
         required: true,
     },
     authorId:{
-        type: Schema.Types.ObjectId,
-        ref: "User",
+        type: String,
+        required: true,
       },
     authorimg: {
         type: String,
-        required: true,
     },
     imagePrompt: {
         type: String,
@@ -44,6 +41,7 @@ const podcastSchema = new Schema({
     },
     audioDuration: {
         type: Number,
+        required: true,
     },
     views: {
         type: Number,

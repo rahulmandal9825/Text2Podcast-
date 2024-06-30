@@ -9,8 +9,6 @@ import { revalidatePath } from "next/cache";
 
 
 
-
-
 export async function creatUser(user: createUserParams) {
     try {
         await connectTodb();

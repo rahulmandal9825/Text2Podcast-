@@ -3,12 +3,12 @@
 import React from 'react'; // Import useState for error handling
 import { user } from '../constants';
 import { creatUser } from '@/lib/actions/user.action';
-import { auth } from '@clerk/nextjs/server';
+import { auth, currentUser } from '@clerk/nextjs/server';
 
 
 const RightSidebar = async ()=> {
 
-    const session = await auth();
+    const session = await currentUser();
   // const handleClick = async () => {
   //   try {
   //     const data = await creatUser(user);
@@ -18,7 +18,7 @@ const RightSidebar = async ()=> {
   //   }
   // };
 
-  console.log(session);
+
 
   return (
     <div className='right_sidebar'>
