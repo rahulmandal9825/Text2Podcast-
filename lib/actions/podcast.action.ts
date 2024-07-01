@@ -7,7 +7,7 @@ import { SpeechCreateParams } from "openai/resources/audio/speech.mjs";
 import { connectTodb } from "../database/mongoose";
 import { revalidatePath } from "next/cache";
 import Podcast from "../models/podcast.model";
-import { coerceBoolean } from "openai/core.mjs";
+
 
 
 const openai = new OpenAI({
@@ -68,7 +68,7 @@ export async function CreatePodcast({
 
 
   try {
-    connectTodb();
+   await connectTodb();
 
     const newPodcast = new Podcast({
             podcastTitle,
@@ -95,10 +95,22 @@ export async function CreatePodcast({
   
 }
 
+export async function getallPodcast() {
+  try {
+     await connectTodb();
+    const Podcasts = await Podcast.find();
+
+    return Podcasts;
+  } catch (error) {
+    console.log(error);
+
+  }
+}
+
 
 export async function getPodcast(clerkId:string | null) {
   try {
-    connectTodb();
+     await connectTodb();
     const Podcasts = await Podcast.find({authorId:clerkId});
 
     return Podcasts;
@@ -112,7 +124,7 @@ export async function getonePodcast(podcastId:string){
 
 
   try {
-    connectTodb();
+    await connectTodb();
     const Podcasts = await Podcast.findOne({_id:podcastId});
 
     return Podcasts;
@@ -120,3 +132,32 @@ export async function getonePodcast(podcastId:string){
     console.log(error);
   }
 }
+
+export async function getPodcastbytype(voiceType: SpeechCreateParams['voice']){
+  try {
+    await connectTodb()
+    const podcasts = await Podcast.find({voiceType});
+
+    return podcasts;
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export const getTrendingPodcasts = async () => {
+  try {
+    // Connect to the database
+    await connectTodb();
+
+    // Find the top 8 podcasts with the most views using Mongoose
+    const trendingPodcasts  = await Podcast.find({})
+      .sort({ views: -1 }) // Sort by `views` descending
+      .limit(8); // Limit to the top 8 results
+    // Return the trending podcast
+    return JSON.parse(JSON.stringify(trendingPodcasts));
+  } catch (error) {
+    console.error('Error fetching trending podcasts:', error);
+    // Re-throw the error for potential handling in the calling code
+    throw error;
+  }
+};

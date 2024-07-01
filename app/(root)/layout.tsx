@@ -4,6 +4,7 @@ import MobNav from "@/components/MobNav";
 import Image from "next/image";
 import RigthSidebar from "@/components/RigthSidebar";
 import { Toaster } from "@/components/ui/toaster";
+import PodcastPlayer from "@/components/PodcastPlayer";
 
 
 export default function RootLayout({
@@ -12,7 +13,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-        <div className="relative flex flex-col">
+        <div className="relative flex flex-col ">
+          
           <main className="relative flex">
           <LeftSidebar/>
           <section className="flex min-h-screen flex-1 flex-col px-4 sm:px-14">
@@ -29,7 +31,7 @@ export default function RootLayout({
             <RigthSidebar/>
           </main>
 
-           
+           <PodcastPlayer/>
         </div>
 
   );

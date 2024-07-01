@@ -1,11 +1,12 @@
 "use server";
 
-
-
 import { createUserParams, UpdateUserparams } from "@/types";
 import { connectTodb } from "../database/mongoose";
 import User from "../models/user.model";
 import { revalidatePath } from "next/cache";
+import { incressviews } from "../../constants/index";
+import Podcast from "../models/podcast.model";
+
 
 
 
@@ -69,3 +70,20 @@ export async function deleteUser(clerkId: string | undefined) {
         return { error: " failed to delete user" }
     }
 }
+
+export async function Addviews(PodcastId: string) {
+    try {
+      await connectTodb();
+  
+      const Addviews = await Podcast.findOneAndUpdate(
+        { _id: PodcastId },
+        { $inc: { views: 1 }},
+        { new: true }
+      )
+  
+    ;
+      return JSON.parse(JSON.stringify(Addviews));
+    } catch (error) {
+      console.log(error);
+    }
+  }

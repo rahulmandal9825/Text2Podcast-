@@ -68,6 +68,7 @@ const Createpodcast: React.FC = () => {
 
             toast({
                 title: "Podcast created",
+                className: "custom-toast"
             });
             setIsSubmitting(false);
             router.push("/");

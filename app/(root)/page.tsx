@@ -1,12 +1,11 @@
 
 import PodcastCard from "@/components/PodcastCard";
 import { currentUser } from "@clerk/nextjs/server";
-import { getPodcast } from "@/lib/actions/podcast.action";
+import { getallPodcast} from "@/lib/actions/podcast.action";
 
 export default async function Home() {
 
-    const user = await currentUser();
-    const podcastData = await getPodcast(user.id);
+    const podcastData = await getallPodcast();
 
     return (
         <main className="mt-9 flex flex-col gap-9 md:overflow-hidden">

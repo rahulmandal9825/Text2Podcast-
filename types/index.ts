@@ -59,3 +59,33 @@ export interface Podcast {
     authorId: string;
 
   }
+  export interface TopPodcastersProps {
+    _id: string;
+    imageUrl: string;
+    podcastTitle:string;
+    author:string;
+  }
+
+  export interface CarouselProps {
+    fansLikeDetail: TopPodcastersProps[];
+  }
+
+  export interface AudioProps {
+    title: string;
+    audioUrl: string;
+    author: string;
+    imageUrl: string;
+    podcastId: string;
+  }
+  
+  export interface AudioContextType {
+    audio: AudioProps | undefined;
+    setAudio: React.Dispatch<React.SetStateAction<AudioProps | undefined>>;
+  }
+  
+  export interface EmptyStateProps {
+    title: string;
+    search?: boolean;
+    buttonText?: string;
+    buttonLink?: string;
+  }

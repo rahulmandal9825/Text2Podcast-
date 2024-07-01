@@ -3,6 +3,7 @@ import {Inter} from "next/font/google";
 import "./globals.css";
 import {ClerkProvider} from "@clerk/nextjs";
 import {EdgeStoreProvider} from "@/lib/edgestore";
+import AudioProvider from "@/provider/AudioProvider";
 
 const inter = Inter({subsets: ["latin"]});
 
@@ -19,7 +20,8 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={inter.className}>
-                <EdgeStoreProvider>
+            <AudioProvider>
+<EdgeStoreProvider>
                     <ClerkProvider
                         appearance={{
                             layout: {
@@ -39,6 +41,9 @@ export default function RootLayout({
                         {children}
                     </ClerkProvider>
                 </EdgeStoreProvider>
+
+            </AudioProvider>
+                
             </body>
         </html>
     );

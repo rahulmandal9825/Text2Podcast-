@@ -1,30 +1,54 @@
-// "use client";
+"use client";
+import React  from 'react';
+import { SignedIn, useUser } from '@clerk/nextjs';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useAudio } from '@/provider/AudioProvider';
+import { cn } from '@/lib/utils';
 
-import React from 'react'; // Import useState for error handling
-import { user } from '../constants';
-import { creatUser } from '@/lib/actions/user.action';
-import { auth, currentUser } from '@clerk/nextjs/server';
+import Carousel from './Carousel';
 
-
-const RightSidebar = async ()=> {
-
-    const session = await currentUser();
-  // const handleClick = async () => {
-  //   try {
-  //     const data = await creatUser(user);
-  //     console.log(data);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
-
+const RightSidebar = () => {
+  const { user } = useUser();
+  const { audio } = useAudio();
 
   return (
-    <div className='right_sidebar'>
-      {/* <button onClick={handleClick}>CREATE</button> */}
+    <div
+      className={cn('right_sidebar h-[calc(100vh-5px)]', {
+        'h-[calc(100vh-140px)]': audio?.audioUrl,
+      })}
+    >
+      <SignedIn>
+        <Link
+          href={`/profile/${user?.publicMetadata?.userId}`}
+          className="flex gap-3 justify-between items-center w-[90%] cursor-pointer hover:bg-black-2 p-3 rounded-lg"
+        >
+          <div className="flex gap-3 items-center">
+            <Image
+              src={user?.imageUrl || '/player1.png'}
+              width={30}
+              height={30}
+              alt="user image"
+              className="aspect-square rounded-full"
+            />
+            <h1 className="text-base font-semibold text-white-1">
+              {user?.firstName} {user?.lastName}
+            </h1>
+          </div>
+          <Image
+            src="/right arrow.svg"
+            width={15}
+            height={15}
+            alt="right arrow"
+            className="aspect-square rounded-full"
+          />
+        </Link>
+      </SignedIn>
+      <section>
+          {/* <Carousel  /> */}
+      </section>
     </div>
   );
-}
+};
 
 export default RightSidebar;
