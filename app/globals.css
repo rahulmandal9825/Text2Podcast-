@@ -23,7 +23,7 @@ html {
       @apply grid grid-cols-1 lg:grid-cols-4 2xl:grid-cols-4 gap-5 sm:grid-cols-2
     }
     .right_sidebar{
-      @apply sticky right-0 top-0 flex w-fit flex-col  justify-between  border-none  bg-black-1 pt-8 text-white-1 max-md:hidden lg:w-[270px] lg:pl-8;
+      @apply sticky right-0 top-0 flex w-fit flex-col   border-none  bg-black-1 pt-8 text-white-1 max-md:hidden lg:w-[270px] lg:pl-8;
     }
     .input-class{
       @apply  bg-black-1 rounded-lg  placeholder:text-gray-1 border-none outline-none text-white-1

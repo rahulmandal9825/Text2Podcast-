@@ -47,6 +47,20 @@ export interface Podcast {
     views: number;
     audioDuration: number;
   }
+  export interface podcastparams {
+    podcastTitle: string;
+    podcastDescription: string;
+    audioUrl: string;
+    imageUrl: string;
+    voiceType: string | null;
+    imagePrompt: string;
+    voicePrompt: string;
+    views: number;
+    authorId: string;
+    audioDuration: number;
+    _id:string;
+    author:string;
+  }
 
   export interface PodcastDetailPlayerProps{
     audioUrl: string;
@@ -88,4 +102,10 @@ export interface Podcast {
     search?: boolean;
     buttonText?: string;
     buttonLink?: string;
+  }
+
+  export interface getsearchPodcast{
+    query?: string;
+    page?: number;
+    limit?: number;
   }

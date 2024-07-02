@@ -1,5 +1,5 @@
 "use server";
-import { Createpodcastparams } from "@/types";
+import { Createpodcastparams, getsearchPodcast } from "@/types";
 import { currentUser } from "@clerk/nextjs/server";
 import { get } from "http";
 import OpenAI from "openai";
@@ -7,6 +7,7 @@ import { SpeechCreateParams } from "openai/resources/audio/speech.mjs";
 import { connectTodb } from "../database/mongoose";
 import { revalidatePath } from "next/cache";
 import Podcast from "../models/podcast.model";
+import { connect } from "http2";
 
 
 
@@ -161,3 +162,31 @@ export const getTrendingPodcasts = async () => {
     throw error;
   }
 };
+
+export const getSearchPodcast = async ({
+  query,
+  page=1,
+  limit =10
+}:getsearchPodcast) =>{
+  try {
+     connectTodb();
+     console.log({query});
+     const skip = (page - 1) * limit
+
+     
+    const Podcasts = await Podcast.find({
+      podcastTitle: { $regex: query, $options: 'i' },
+
+    })
+      .limit(limit)
+      .skip(skip);
+
+console.log(Podcasts);
+ return JSON.parse(JSON.stringify(Podcasts));
+  } catch (error) {
+      console.log(error);
+      return  { error: "Failed to fetch posts!" }
+}
+
+
+}
