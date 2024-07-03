@@ -109,3 +109,22 @@ export interface Podcast {
     page?: number;
     limit?: number;
   }
+
+  export interface ProfileCardProps {
+    podcastData: PodcastProps[];
+  }
+
+  export interface PodcastProps{
+    _id: string;
+    podcastTitle: string;
+    podcastDescription: string;
+    audioUrl: string;
+    imageUrl:string;
+    author: string;
+    authorId: string;
+    authorimg:string;
+    imagePrompt: string;
+    voicePrompt: string;
+    voiceType: string;
+
+  }

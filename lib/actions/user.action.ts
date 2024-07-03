@@ -36,6 +36,21 @@ export async function getUserbyId(userId: string) {
         return { error: " something went wrong" };
     }
 }
+export async function getUserbymongoId(userId: string) {
+    try {
+        await connectTodb();
+
+        const user = await User.findOne({ _id: userId })
+        if (!user) throw new Error("user not found");
+
+        return JSON.parse(JSON.stringify(user));
+
+    } catch (error) {
+        console.log(error);
+        return { error: " something went wrong" };
+    }
+}
+
 
 export async function updateUser(clerkId: string, user: UpdateUserparams) {
     try {

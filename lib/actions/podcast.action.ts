@@ -101,7 +101,7 @@ export async function getallPodcast() {
      await connectTodb();
     const Podcasts = await Podcast.find();
 
-    return Podcasts;
+    return JSON.parse(JSON.stringify(Podcasts));
   } catch (error) {
     console.log(error);
 
@@ -114,7 +114,7 @@ export async function getPodcast(clerkId:string | null) {
      await connectTodb();
     const Podcasts = await Podcast.find({authorId:clerkId});
 
-    return Podcasts;
+    return JSON.parse(JSON.stringify(Podcasts));
   } catch (error) {
     console.log(error);
 
@@ -128,7 +128,7 @@ export async function getonePodcast(podcastId:string){
     await connectTodb();
     const Podcasts = await Podcast.findOne({_id:podcastId});
 
-    return Podcasts;
+    return JSON.parse(JSON.stringify(Podcasts));
   } catch (error) {
     console.log(error);
   }
@@ -139,7 +139,7 @@ export async function getPodcastbytype(voiceType: SpeechCreateParams['voice']){
     await connectTodb()
     const podcasts = await Podcast.find({voiceType});
 
-    return podcasts;
+    return JSON.parse(JSON.stringify(podcasts));
   } catch (error) {
     console.log(error)
   }
@@ -170,7 +170,6 @@ export const getSearchPodcast = async ({
 }:getsearchPodcast) =>{
   try {
      connectTodb();
-     console.log({query});
      const skip = (page - 1) * limit
 
      
@@ -181,7 +180,6 @@ export const getSearchPodcast = async ({
       .limit(limit)
       .skip(skip);
 
-console.log(Podcasts);
  return JSON.parse(JSON.stringify(Podcasts));
   } catch (error) {
       console.log(error);

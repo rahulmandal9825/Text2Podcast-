@@ -7,8 +7,7 @@ import { Progress } from './ui/progress';
 import Image from 'next/image';
 import Link from 'next/link';
 import { formatTime } from '@/lib/formatTime';
-import { Addviews } from '@/lib/actions/user.action';
-import { AudioProps } from '@/types';
+
 
 
 
