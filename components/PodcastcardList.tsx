@@ -12,6 +12,7 @@ const PodcastcardList = () => {
     const [error, setError] = useState<Error | null>(null);
     const router = useRouter();
 
+
     useEffect(() => {
         const fetchTrendingPodcasts = async () => {
             try {
@@ -35,19 +36,19 @@ const PodcastcardList = () => {
                 <div
                     key={podcaster._id}
                     className="flex cursor-pointer mb-5 justify-between mr-5"
-                    onClick={() => router.push(`/profile/${podcaster.authorId}`)}
+                    onClick={() => router.push(`/podcasts/${podcaster._id}`)}
                 >
                     <figure className="flex items-center gap-2">
                         <Image
-                            src={podcaster.authorimg}
+                            src={podcaster.imageUrl}
                             alt={podcaster.author}
                             width={44}
                             height={44}
                             className="aspect-square rounded-lg"
                         />
                         <div className="flex flex-col gap-1 w-[95px] ">
-                        <h2 className="text-sm font-semibold text-white-1">{podcaster.author}</h2>
-                        <h2 className="text-xs  text-white-2  truncate">{podcaster.podcastTitle}</h2>
+                        <h2 className="text-sm font-semibold text-white-1 truncate">{podcaster.podcastTitle}</h2>
+                        <h2 className="text-xs  text-white-2  ">{podcaster.author}</h2>
                         </div>
                         
                     </figure>

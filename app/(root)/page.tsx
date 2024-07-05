@@ -2,6 +2,7 @@
 import PodcastCard from "@/components/PodcastCard";
 import { currentUser } from "@clerk/nextjs/server";
 import { getallPodcast} from "@/lib/actions/podcast.action";
+import Podcastcardlisthome from "@/components/Podcastcardlisthome";
 
 export default async function Home() {
 
@@ -23,6 +24,10 @@ export default async function Home() {
                         />
                     ))}
                 </div>
+            </section>
+            <section>
+                <h1 className="text-xl font-semibold mb-4">Latest Podcasts</h1>
+                <Podcastcardlisthome/>
             </section>
         </main>
     );

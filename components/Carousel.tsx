@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { EmblaOptionsType, EmblaCarouselType } from 'embla-carousel'
 import { DotButton, useDotButton } from './EmblaCarouselDotButton'
 import Autoplay from 'embla-carousel-autoplay'
@@ -9,10 +9,20 @@ import LoaderSpinner from './LoaderSpinner'
 import { getTrendingPodcasts } from '@/lib/actions/podcast.action'
 
 
-const EmblaCarousel = async () => {
+const EmblaCarousel =  () => {
 
-  const fansLikeDetail = await getTrendingPodcasts();
-  // const router = useRouter();
+  const [slidePodcast, setSlidePodcast] = useState([]);
+  useEffect(() => {
+   const getPodcast = async () =>{
+    const fansLikeDetail = await getTrendingPodcasts();
+    setSlidePodcast(fansLikeDetail)
+   }
+   getPodcast();
+   
+  }, []);
+
+  console.log(slidePodcast);
+
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay()])
 
   const onNavButtonClick = useCallback((emblaApi: EmblaCarouselType) => {
@@ -32,7 +42,7 @@ const EmblaCarousel = async () => {
     onNavButtonClick
   )
 
-  const slides = fansLikeDetail && fansLikeDetail?.filter((item: any) => item.totalPodcasts > 0)
+  const slides = slidePodcast 
 
   if(!slides) return <LoaderSpinner />
 
@@ -52,7 +62,7 @@ const EmblaCarousel = async () => {
             className="absolute size-full rounded-xl border-none"
             />
             <div className="glassmorphism-black relative z-10 flex flex-col rounded-b-xl p-4">
-              <h2 className="text-14 font-semibold text-white-1">{item.podcastTitle}</h2>
+              <h2 className="text-14 font-semibold text-white-1 truncate">{item.podcastTitle}</h2>
               <p className="text-12 font-normal text-white-2">{item.author}</p>
             </div>
           </figure>

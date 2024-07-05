@@ -188,3 +188,18 @@ export const getSearchPodcast = async ({
 
 
 }
+
+export const getpodcastbytime = async ()=>{
+  try {
+    connectTodb();
+    const views = 'views'
+    
+   const Podcasts = await Podcast.find().sort({[views]:"desc"});
+
+ 
+    return JSON.parse(JSON.stringify(Podcasts));
+ } catch (error) {
+     console.log(error);
+     return  { error: "Failed to fetch posts!" }
+}
+}

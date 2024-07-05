@@ -20,7 +20,7 @@ html {
       @apply sticky left-0 top-0 flex w-fit flex-col  border-none  bg-black-1 pt-8 text-white-1 max-md:hidden lg:w-[270px] lg:pl-8;
     }
     .podcast_grid{
-      @apply grid grid-cols-1 lg:grid-cols-4 2xl:grid-cols-4 gap-5 sm:grid-cols-2
+      @apply grid grid-cols-2 lg:grid-cols-4 2xl:grid-cols-4 gap-5 sm:grid-cols-2
     }
     .right_sidebar{
       @apply sticky right-0 top-0 flex w-fit flex-col   border-none  bg-black-1 pt-8 text-white-1 max-md:hidden lg:w-[270px] lg:pl-8;
@@ -31,7 +31,9 @@ html {
     .image_div {
       @apply  flex mt-5 h-[150px] w-full cursor-pointer flex-col  gap-3 rounded-xl border-2 border-dashed  transition-all duration-150 border-black-6 bg-black-1;
     }
-
+    .carousel_box {
+      @apply relative flex h-fit aspect-square w-full flex-none cursor-pointer flex-col justify-end rounded-xl border-none;
+    }
 
   }
 
