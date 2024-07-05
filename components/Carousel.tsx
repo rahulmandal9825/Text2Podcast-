@@ -21,7 +21,6 @@ const EmblaCarousel =  () => {
    
   }, []);
 
-  console.log(slidePodcast);
 
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay()])
 
