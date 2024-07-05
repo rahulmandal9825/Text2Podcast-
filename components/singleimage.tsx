@@ -146,7 +146,8 @@ const SingleImageDropzone = React.forwardRef<HTMLInputElement, InputProps>(
               <UploadCloudIcon className="mb-2 h-7 w-7" />
               <div className="text-gray-400">drag & drop to upload</div>
               <div className="mt-3">
-                <Button disabled={disabled}>select</Button>
+                {/* <button  disabled={disabled}>select</button> */}
+                <h1 className='border-1 border-white-1'>select</h1>
               </div>
             </div>
           )}
