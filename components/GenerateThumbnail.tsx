@@ -168,6 +168,8 @@ const GenrateThumbnail = (props: GenerateThumbnailProps) => {
                     </div>
                 </>
             )}
+            <input type="text" name="audio" className="input-class" value={props.image} onChange={(e)=>props.setImage(e.target.value)} />
+            {props.image}
         </>
     );
 };

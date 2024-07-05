@@ -173,6 +173,8 @@ const GenratePodcast = (props: GeneratePodcastProps) => {
                         )}
                     </div>
             )}
+            <input type="text" name="audio" className="input-class" value={props.audio} onChange={(e)=>props.setAudio(e.target.value)} />
+            {props.audio}
         </>
     );
 };

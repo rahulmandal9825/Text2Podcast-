@@ -18,8 +18,8 @@ const EmptyState = ({ title, search, buttonLink, buttonText }: EmptyStateProps) 
             <Link href={buttonLink} className="gap-1 flex">
               <Image 
                 src="/discover.svg"
-                width={100}
-                height={100}
+                width={20}
+                height={20}
                 alt='discover'
               />
               <h1 className="text-16 font-extrabold text-white-1">{buttonText}</h1>
