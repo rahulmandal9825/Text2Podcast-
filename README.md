@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Text to Audio Podcast Converter
+
+A web application to convert text into audio podcasts. Implemented secure user authentication using Clerk. Utilized EdgeStore for efficient audio and image storage. Integrated OpenAI API for high-quality text-to-audio conversion. Automated workflows with webhooks between MongoDB and Clerk.
+
+## Features
+
+- **Text to Audio Conversion**: Converts text into high-quality audio using OpenAI API.
+- **User Authentication**: Secure authentication implemented using Clerk.
+- **Efficient Storage**: Uses EdgeStore for storing audio and image files.
+- **Automated Workflows**: Integrates MongoDB and Clerk with webhooks for seamless data management.
+
+## Tech Stack
+
+- **Frontend**: React.js, Clerk
+- **Backend**: Node.js, Express.js
+- **Database**: MongoDB
+- **Storage**: EdgeStore
+- **AI Integration**: OpenAI API
+- **Authentication**: Clerk
+- **Automation**: Webhooks
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Node.js
+- MongoDB account
+- Clerk account
+- OpenAI API key
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Clone the repository**:
+    ```bash
+    git clone https://github.com/yourusername/text-to-audio-podcast.git
+    cd text-to-audio-podcast
+    ```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+2. **Install dependencies**:
+    ```bash
+    npm install
+    ```
 
-## Learn More
+3. **Set up environment variables**:
+    Create a `.env` file in the root directory and add your configuration:
+    ```env
+    MONGODB_URI=your_mongodb_uri
+    CLERK_API_KEY=your_clerk_api_key
+    OPENAI_API_KEY=your_openai_api_key
+    EDGESTORE_API_KEY=your_edgestore_api_key
+    ```
 
-To learn more about Next.js, take a look at the following resources:
+4. **Run the development server**:
+    ```bash
+    npm run dev
+    ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+    Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Usage
 
-## Deploy on Vercel
+1. **Sign Up / Log In**:
+   - Use Clerk authentication to sign up or log in.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2. **Convert Text to Audio**:
+   - Enter your text and click the "Convert" button.
+   - The audio file will be generated using OpenAI API and stored in EdgeStore.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+3. **Manage Files**:
+   - View and manage your audio files stored in EdgeStore.
+
+## Contributing
+
+Contributions are welcome! Please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-branch`).
+3. Commit your changes (`git commit -m 'Add some feature'`).
+4. Push to the branch (`git push origin feature-branch`).
+5. Open a pull request.
+
+## License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+## Contact
+
+Rahul Mandal - rahul.mandal@example.com
+
+Project Link: [https://github.com/rahulmandal9825/Text2Podcast-](https://github.com/rahulmandal9825/Text2Podcast-/)
