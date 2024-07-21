@@ -85,6 +85,6 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Contact
 
-Rahul Mandal - rahul.mandal@example.com
+Rahul Mandal - rahulmandalzzz123@gmail.com
 
 Project Link: [https://github.com/rahulmandal9825/Text2Podcast-](https://github.com/rahulmandal9825/Text2Podcast-/)
